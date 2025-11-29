@@ -8,6 +8,8 @@
 
 **Build an MVP in hours, not months – guided by the latest AI coding agents**
 
+### 🆕 Now with Anti-Vibe-Coded Quality System + Visual Verification
+
 </div>
 
 ---
@@ -291,18 +293,110 @@ your-app/
 │   ├── research-YourApp.txt
 │   ├── PRD-YourApp-MVP.md
 │   └── TechDesign-YourApp-MVP.md
-├── AGENTS.md             # Universal AI instructions
-├── CLAUDE.md             # Claude Code config (if using)
+├── context/                        # 🆕 Design quality standards
+│   ├── design-principles.md        # S-Tier design checklist
+│   ├── anti-vibe-coded-rules.md    # Patterns to avoid
+│   └── premium-ui-system-prompt.md # Quality mindset injection
+├── .claude/                        # 🆕 Claude Code agents & commands
+│   ├── agents/
+│   │   ├── design-reviewer.md      # UI/UX review with Playwright
+│   │   ├── code-reviewer.md        # Architecture & security
+│   │   └── security-reviewer.md    # Vulnerability scanning
+│   └── commands/
+│       ├── design-review.md        # /design-review slash command
+│       ├── code-review.md          # /code-review slash command
+│       ├── security-review.md      # /security-review slash command
+│       └── visual-check.md         # /visual-check quick verification
+├── AGENTS.md             # Universal AI instructions (with quality standards)
+├── CLAUDE.md             # Claude Code config (with visual verification)
 ├── GEMINI.md             # Gemini CLI config (if using)
-├── GEMINI.md             # Antigravity config (if using)
 ├── .aider.conf.yml       # Aider config (if using)
 ├── .clinerules           # Cline config (if using)
-├── .cursorrules          # Cursor config (if using)
+├── .cursorrules          # Cursor config (with quality rules)
 ├── .windsurfrules        # Windsurf config (if using)
 ├── README.md             # Setup instructions (AI-generated)
 ├── .env.example          # Environment variables
 └── src/                  # Your application code
 ```
+
+---
+
+## 🎨 Anti-Vibe-Coded Quality System (NEW)
+
+<details>
+<summary><b>What is "Vibe-Coded" and why avoid it?</b></summary>
+
+**"Vibe-coded"** describes websites built fast with AI that share telltale signs:
+- Random purple gradients everywhere
+- Sparkle emoji overuse
+- Aggressive hover animations (bouncing cards)
+- Fake testimonials with "Sarah P."
+- Generic taglines ("Build your dreams")
+- Missing loading states
+- Broken mobile layouts
+
+This system ensures your MVP looks **premium** from day one.
+
+</details>
+
+<details>
+<summary><b>Three-Layer Quality System</b></summary>
+
+### Layer 1: Prevention (Baked into AGENTS.md)
+Every generated AGENTS.md now includes:
+- Design system requirements (8px spacing, typography ramp)
+- Anti-vibe-coded rules (explicit patterns to avoid)
+- Component consistency standards
+- Pre-ship checklist
+
+### Layer 2: Visual Verification (Playwright MCP)
+After any UI change, the AI can:
+- Take screenshots at desktop/mobile viewports
+- Compare against design principles
+- Check console for errors
+- Self-correct before presenting
+
+### Layer 3: Review Agents (Claude Code)
+Before shipping, run comprehensive reviews:
+- `@agent design-reviewer` - UI/UX audit with Playwright
+- `@agent code-reviewer` - Architecture & maintainability
+- `@agent security-reviewer` - Vulnerability scanning
+
+</details>
+
+<details>
+<summary><b>Quick Commands (Claude Code)</b></summary>
+
+```bash
+# After UI work - quick visual check
+/visual-check http://localhost:3000
+
+# Before PR - comprehensive design review
+/design-review
+
+# Before merge - code quality check
+/code-review
+
+# After auth/payment changes - security scan
+/security-review
+```
+
+</details>
+
+<details>
+<summary><b>Design Principles Reference</b></summary>
+
+The `/context/` folder contains:
+
+| File | Purpose |
+|------|---------|
+| `design-principles.md` | S-Tier checklist (Stripe/Airbnb/Linear standards) |
+| `anti-vibe-coded-rules.md` | Specific patterns to avoid |
+| `premium-ui-system-prompt.md` | LLM prompt for quality mindset |
+
+These are automatically referenced by the enhanced AGENTS.md and tool configs.
+
+</details>
 
 ---
 

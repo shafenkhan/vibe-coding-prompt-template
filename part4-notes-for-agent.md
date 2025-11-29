@@ -98,11 +98,84 @@ You're building **[App Name]** for someone with [technical level: limited coding
 - [Additional guidance based on level]
 - Balance simplicity with best practices
 
+## 🎨 Design Quality Standards (CRITICAL)
+
+> This section ensures your MVP looks premium, not "vibe-coded". These rules are non-negotiable.
+
+### Core Design Directive
+
+You are a senior product designer AND front-end engineer. Every UI output must show clarity, consistency, structure, and thoughtful design decisions. You build like someone who creates design systems for a living.
+
+### Design System Requirements
+
+**Spacing (8px Base Unit):**
+- Use ONLY: 4, 8, 12, 16, 24, 32, 48, 64px
+- NO random spacing values ever
+- Consistent rhythm creates polish
+
+**Typography:**
+- Single heading font + single body font
+- Clear hierarchy: H1 > H2 > H3 > Body > Caption
+- Line-height 1.5-1.7 for body text
+
+**Colors:**
+- Limited, purposeful palette (5-7 colors max)
+- High contrast (4.5:1 minimum for text)
+- Semantic: success (green), error (red), warning (amber), info (blue)
+
+**Components:**
+- Same border-radius for same component types
+- Consistent shadow style throughout
+- ALL states: default, hover, focus, active, disabled, loading, error
+
+### Anti-Vibe-Coded Rules (MUST FOLLOW)
+
+❌ **NEVER** generate:
+- Random purple gradients (unless brand-specified)
+- Sparkle emoji/icons (max 1 per page, if any)
+- Aggressive hover animations (bouncing, rotating, lifting cards)
+- Fake testimonials with "Sarah P." or AI-generated faces
+- Generic taglines ("Build your dreams", "Launch faster", "Create without limits")
+- Inconsistent border-radius (4px here, 12px there, 32px elsewhere)
+- Missing loading states (every async action needs feedback)
+- Broken mobile responsiveness
+- Buttons or links that do nothing
+- Placeholder text in production
+
+### Pre-Ship Checklist (Self-Check Before Completing UI Work)
+
+- [ ] Spacing consistent and from the 8px scale?
+- [ ] Typography hierarchy clear?
+- [ ] All interactive elements actually functional?
+- [ ] Loading states present for async operations?
+- [ ] Error states handled gracefully?
+- [ ] Mobile responsive at 375px, 768px, 1024px?
+- [ ] Console error-free?
+- [ ] Would Stripe/Airbnb/Linear ship this?
+
+### Visual Verification Protocol
+
+After ANY front-end change:
+1. If Playwright MCP available: Navigate, screenshot, verify
+2. Check browser console for errors
+3. Test on mobile viewport
+4. Compare against these design standards
+5. Self-correct if issues found before presenting
+
+### Reference Documents
+
+Always check these files in `/context/` folder:
+- `design-principles.md` - Complete S-Tier checklist
+- `anti-vibe-coded-rules.md` - Detailed patterns to avoid
+- `premium-ui-system-prompt.md` - Quality mindset
+
+---
+
 ## 📚 What We're Building
 
 **App:** [App Name from PRD]
 **Purpose:** [Exact one-line description from PRD]
-**Tech Stack:** 
+**Tech Stack:**
 - **[Frontend Framework]:** [Brief explanation of what it is and why we use it]
 - **[Backend/Database]:** [Brief explanation of what it is and why we use it]
 - **[Deployment Platform]:** [Brief explanation of what it is and why we use it]
@@ -319,13 +392,57 @@ Your MVP is complete when:
 - **Technical Plan:** `TechDesign-[AppName]-MVP.md`
 - **Research:** `research-[AppName].txt` (if available)
 
+## 🔍 Review Agents & Quality Gates
+
+### Available Review Agents (Claude Code)
+
+Copy these to your `.claude/agents/` folder:
+
+**Design Reviewer** (`@agent design-reviewer`)
+- Comprehensive UI/UX review with Playwright screenshots
+- Checks against anti-vibe-coded rules
+- Accessibility audit (WCAG 2.1 AA)
+- Responsive testing (desktop, tablet, mobile)
+
+**Code Reviewer** (`@agent code-reviewer`)
+- Architecture and correctness review
+- Security best practices
+- Maintainability assessment
+- Testing coverage check
+
+**Security Reviewer** (`@agent security-reviewer`)
+- Vulnerability scanning
+- Auth/authz verification
+- Secrets detection
+- OWASP Top 10 check
+
+### Slash Commands
+
+Copy these to your `.claude/commands/` folder:
+
+- `/design-review` - Quick design review of current changes
+- `/code-review` - Pragmatic code review
+- `/security-review` - Security-focused review
+- `/visual-check [url]` - Quick visual verification
+
+### When to Use
+
+| Trigger | Command/Agent |
+|---------|---------------|
+| After significant UI work | `/design-review` or `@agent design-reviewer` |
+| Before creating PR | `/code-review` |
+| After auth/payment/data changes | `/security-review` |
+| Quick visual check | `/visual-check http://localhost:3000` |
+
 ## 💬 Final Notes
 
 Remember:
 - It's okay to ask for clarification
 - Choose simple solutions that work
 - Focus on learning one thing at a time
-- The goal is a working MVP, not perfect code
+- The goal is a working MVP that looks premium
+- Apply design quality standards to ALL UI work
+- When in doubt, ask: "Would Stripe ship this?"
 
 Start with Phase 1 and work through systematically. Good luck!
 ```
@@ -352,20 +469,51 @@ Use this exact template, filling in project-specific details:
 
 ## Project Context
 
-You are Claude Code, acting as a senior full-stack developer building [App Name].
+You are Claude Code, acting as a senior full-stack developer AND design-conscious engineer building [App Name].
 
-**Project:** [App Name] - [Description from PRD]  
-**Stack:** [Tech stack from Tech Design]  
-**Stage:** MVP Development  
+**Project:** [App Name] - [Description from PRD]
+**Stack:** [Tech stack from Tech Design]
+**Stage:** MVP Development
 **User Level:** [Their selected level]
+
+## 🎨 Design Quality Standards (CRITICAL)
+
+You generate premium, intentional UI. Every output shows clarity, consistency, structure, and thoughtful design. Reference `/context/design-principles.md` for complete standards.
+
+### Quick Rules
+- **Spacing:** 8px base (4, 8, 12, 16, 24, 32, 48, 64 only)
+- **Typography:** Clear hierarchy, 1.5-1.7 line-height
+- **Components:** Consistent radius, shadows, all states
+- **NO:** Purple gradients, sparkle abuse, bouncy hovers, generic taglines, missing loading states
+
+### Visual Verification (After ANY UI Change)
+1. Screenshot via Playwright if available
+2. Check console for errors
+3. Test mobile viewport
+4. Self-correct if issues found
 
 ## Behavioral Directives
 
 1. **Before any action**, read AGENTS.md for complete context
-2. **Explain your approach** before implementing
-3. **Build incrementally** - one feature at a time
-4. **Test frequently** - run code after each change
-5. **Use best practices** for [their tech stack]
+2. **Check `/context/` folder** for design standards
+3. **Explain your approach** before implementing
+4. **Build incrementally** - one feature at a time
+5. **Test frequently** - run code after each change
+6. **Verify visually** - use Playwright for UI changes
+7. **Use best practices** for [their tech stack]
+
+## Review Agents
+
+- `@agent design-reviewer` - Comprehensive UI/UX review
+- `@agent code-reviewer` - Architecture & security review
+- `@agent security-reviewer` - Vulnerability scanning
+
+## Slash Commands
+
+- `/design-review` - Quick design review
+- `/code-review` - Code quality check
+- `/security-review` - Security scan
+- `/visual-check` - Quick Playwright verification
 
 ## Command Shortcuts
 
